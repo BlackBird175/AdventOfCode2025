@@ -1,22 +1,24 @@
-package fr.mo.day1;
+package fr.mo.day1.part2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-public class CircularDial {
+public class CircularDialPart2 {
 
-    private final String filePath = "/home/kandinsky/Documents/CodeExos/AdventOfCode2025/src/main/resources/instructions.txt";
+    private final String filePath = "/home/kandinsky/Documents/CodeExos/AdventOfCode2025/src" +
+            "/main/resources/instructions.txt";
     private BufferedReader br = new BufferedReader(new FileReader(filePath));
-    private String line;
     private int countZeros = 0;
+
+    public CircularDialPart2() throws FileNotFoundException {
+    }
 
     public void readInstructions() {
         int start = 50;
         try {
+            String line;
             while((line = br.readLine()) != null){
 
                 String letter = line.replaceAll("[0-9]", "");
@@ -37,7 +39,6 @@ public class CircularDial {
                     }
                 }
             }
-
             br.close();
             System.out.println(countZeros);
 
@@ -45,7 +46,4 @@ public class CircularDial {
             throw new RuntimeException(e);
         }
     }
-    public CircularDial() throws FileNotFoundException {
-    }
-
 }

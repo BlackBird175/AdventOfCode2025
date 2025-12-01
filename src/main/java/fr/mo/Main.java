@@ -1,13 +1,13 @@
 package fr.mo;
 
-import fr.mo.day1.CircularDial;
+import fr.mo.day1.part2.CircularDialPart2;
 
 import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
-        CircularDial circularDial = new CircularDial();
+        CircularDialPart2 circularDial = new CircularDialPart2();
         circularDial.readInstructions();
     }
 }
