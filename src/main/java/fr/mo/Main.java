@@ -1,13 +1,14 @@
 package fr.mo;
 
-import fr.mo.day1.part2.CircularDialPart2;
-
-import java.io.FileNotFoundException;
+import fr.mo.day2.part1.ModelDayTwo;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
-        CircularDialPart2 circularDial = new CircularDialPart2();
-        circularDial.readInstructions();
+        ModelDayTwo model = new ModelDayTwo();
+        model.splitEachRange();
+        model.findInvalidIds();
+        System.out.println(model.calculateSumOfInvalidIds());
     }
 }
