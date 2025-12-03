@@ -9,7 +9,8 @@ import java.util.List;
 
 public class ModelDayTwo {
 
-    private final String filePath = "/home/kandinsky/Documents/CodeExos/AdventOfCode2025/src/main/java/fr/mo/day2/part1/instructions.txt";
+    private final String filePath = "/home/kandinsky/Documents/CodeExos/AdventOfCode2025/src/main/java/fr/mo/day2" +
+            "/part1/instructions.txt";
     private String line;
     private String[] ranges = null;
     private List<Long> invalidIds = new ArrayList<>();
@@ -25,13 +26,12 @@ public class ModelDayTwo {
     }
 
     public void findInvalidIds(){
-
         for (String range : ranges) {
-                String[] interval = range.split("-");
-                String lowest = interval[0];
-                String highest = interval[1];
-            for (long i = Long.parseLong(lowest); i <= Long.parseLong(highest); i++) {
+            String[] interval = range.split("-");
+            String lowest = interval[0];
+            String highest = interval[1];
 
+            for (long i = Long.parseLong(lowest); i <= Long.parseLong(highest); i++) {
                 String numberStr = Long.toString(i);
                 int length = numberStr.length();
 
@@ -47,11 +47,9 @@ public class ModelDayTwo {
         }
     }
 
-    public Long calculateSumOfInvalidIds(){
-       Long sum = 0L;
-        for (Long id : invalidIds) {
-            sum += id;
-        }
-        return sum;
+    public Long calculateSumOfInvalidIds() throws IOException {
+        splitEachRange();
+        findInvalidIds();
+        return invalidIds.stream().mapToLong(Long::longValue).sum();
     }
 }
